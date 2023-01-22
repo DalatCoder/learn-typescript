@@ -90,3 +90,66 @@
 - Are you a JS developers? This is for you
 - Know a little bit of TS -> advanced TS
 - How TS works with other technologies
+
+### What is TS?
+
+- TypeScript is Javascript with syntax for types
+
+TypeScript is a superset of JS with:
+
+- Strict typing
+- Editor checks
+- Auto complete
+- Generics
+- OOP features
+- Decorators
+
+### Setup dev environments
+
+- Install Node
+- Install TypeScript
+- Prepare IDE
+- Create config file with `tsc --init`
+
+### Your first TS program
+
+```ts
+// index.ts
+
+const sum = (a: number, b: number) => {
+  return a + b;
+};
+
+console.log(sum(1, 2));
+```
+
+Transpile TS file with: `tsc index.ts`
+
+See all `tsc` flags with: `tsc --help`
+
+Transpile TS files with specific `tsconfig.json` file.
+`tsc -p ./tsconfig.json`
+
+### Setting up Auto Compilation
+
+We can use a better way to compile TS using
+a bundle. We could have used Webpack, but since
+we want to keep things simple here and focus on
+TS, we would use Parcel.
+
+Config Parcel bundler
+
+- init npm project: `npm init -y`
+- install parcel: `npm i parcel@2 -D`
+- create `index.html`
+- create `src` directory for all `ts` stuffs
+- create entry point `src/index.ts`
+- link `index.ts` in `index.html`, parcel will automatically replace this `ts` file with `js` file for us
+- create ts config file with `tsc --init`
+- enable flag: `noEmitOnError`
+- install `prettier` (reads from docs)
+- create `pretter` config file (reads from docs)
+- create task runner using npm scripts
+
+  - start: `(npx parcel ./index.html) & npx parcel watch ./index.html`
+  - remove `main` property in `package.json` file
